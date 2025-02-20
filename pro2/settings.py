@@ -79,7 +79,7 @@ TEMPLATES = [
     },
 ]
 
-ASGI_APPLICATION = "pro2.asgi.application"
+WSGI_APPLICATION = "pro2.wsgi.application"
 
 import cloudinary
 import cloudinary.uploader
