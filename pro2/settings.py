@@ -45,8 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp','cloudinary',
-    'cloudinary_storage',
+    'myapp',
     'whitenoise',
 ]
 
@@ -80,38 +79,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "pro2.wsgi.application"
-
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
-
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': 'dwyxrrxvw',
-#     'API_KEY': '627336925288547',
-#     'API_SECRET': 'cJ1yuEAmq2KzKNSsdmffZuwrB88',
-# }
-
-import cloudinary
-
-cloudinary.config(  
-    cloud_name="dwyxrrxvw",  
-    api_key="627336925288547",  
-    api_secret="cJ1yuEAmq2KzKNSsdmffZuwrB88"  
-)
-
-import cloudinary
-import os
-
-cloudinary.config(
-    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME", "dwyxrrxvw"),
-    api_key=os.getenv("CLOUDINARY_API_KEY", "627336925288547"),
-    api_secret=os.getenv("CLOUDINARY_API_SECRET", "cJ1yuEAmq2KzKNSsdmffZuwrB88"),
-)
-
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-CSRF_TRUSTED_ORIGINS = ["https://res.cloudinary.com"]
 
 
 # Database
