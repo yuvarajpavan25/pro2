@@ -5,23 +5,28 @@
       "src": "pro2/wsgi.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.10"
+        "maxLambdaSize": "25mb",
+        "runtime": "python3.11",
+        "buildCommand": "pip install --upgrade pip && pip install -r requirements.txt"
       }
     },
     {
       "src": "build_files.sh",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "static"
+        "distDir": "staticfiles"
       }
     }
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "dest": "/staticfiles/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "pro2/wsgi.py"  
+      "dest": "pro2/wsgi.py"
     }
   ],
-  "outputDirectory": "static"
+  "outputDirectory": "staticfiles"
 }
