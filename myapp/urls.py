@@ -12,5 +12,3 @@ urlpatterns = [
     path('doctors/',doctor_list,name='doctors'),
 
 ]
-
-
